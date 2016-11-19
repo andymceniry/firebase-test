@@ -4,7 +4,7 @@
     <description>Firebase Test</description>
     <author email="andy@mceniry.me.uk">Andy McEniry</author>
     <icon src="icon.png" />
-    <content src="www/index.html" />
+    <content src="index.html" />
     <allow-navigation href="http://*/*" />
     <gap:platform name="android" />
 </widget>
