@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="uk.me.mceniry.firebasetest" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Firebase Test</name>
+    <description>Firebase Test</description>
+    <author email="andy@mceniry.me.uk">Andy McEniry</author>
+    <icon src="icon.png" />
+    <content src="www/index.html" />
+    <allow-navigation href="http://*/*" />
+    <gap:platform name="android" />
+</widget>
