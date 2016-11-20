@@ -7,4 +7,8 @@
     <content src="index.html" />
     <allow-navigation href="http://*/*" />
     <gap:platform name="android" />
+
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
+    <access origin="https://www.gstatic.com" />
+
 </widget>
