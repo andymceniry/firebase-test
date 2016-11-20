@@ -19,7 +19,7 @@ var oApp = oApp || {};
         }
         
         oApp.initFirebase();
-        oApp.checkAuth();
+        //oApp.checkAuth();
 
     };
 
@@ -28,7 +28,7 @@ var oApp = oApp || {};
     }());
 
     oApp.initFirebase = function () {
-
+        console.log('initFirebase');
         var config = {
             apiKey: "AIzaSyBpnArTxWPmqfAkAETrZD6GCLCohFFNH6Y",
             authDomain: "fir-test-f461d.firebaseapp.com",
@@ -36,8 +36,8 @@ var oApp = oApp || {};
             storageBucket: "fir-test-f461d.appspot.com",
             messagingSenderId: "584262174821"
         };
-        console.log(firebase.SDK_VERSION);
         console.log(config);
+        console.log(firebase.SDK_VERSION);
         firebase.initializeApp(config);
 
     };
