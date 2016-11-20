@@ -10,13 +10,14 @@ var oApp = oApp || {};
 
         phonegap = phonegap !== false;
 
-        //alert(phonegap ? 'App is ready with phonegap' : 'App is ready without phonegap');
-
         if (!phonegap) {
+            $('#log').remove();
             console.log('no phonegap');
+        } else {
+            oApp.initLogger();
+            console.log('phonegap loaded');
         }
-
-        oApp.initLogger();
+        
         oApp.initFirebase();
         oApp.checkAuth();
 
@@ -42,7 +43,8 @@ var oApp = oApp || {};
     $('#signInWithGoogle').click(function () {
         console.log('signInWithGoogle');
         var provider = new firebase.auth.GoogleAuthProvider();
-        //firebase.auth().signInWithRedirect(provider);
+        console.log(provider);
+
         firebase.auth().signInWithPopup(provider).then(function (result) {
             console.log(result);
             if (result.credential) {
@@ -56,6 +58,8 @@ var oApp = oApp || {};
                 var user = result.user;
                 // ...
             }).catch(function(error) {
+                console.log(error.message);
+                console.log(error);
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
