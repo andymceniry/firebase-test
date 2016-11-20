@@ -36,6 +36,8 @@ var oApp = oApp || {};
             storageBucket: "fir-test-f461d.appspot.com",
             messagingSenderId: "584262174821"
         };
+        console.log(firebase.SDK_VERSION);
+        console.log(config);
         firebase.initializeApp(config);
 
     };
