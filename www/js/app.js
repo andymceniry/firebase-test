@@ -1,4 +1,4 @@
-/*global $, Draggable, oAppFunctions, TweenMax*/
+/*global $, firebase*/
 
 var oApp = oApp || {};
 
@@ -16,6 +16,7 @@ var oApp = oApp || {};
             console.log('no phonegap');
         }
 
+        oApp.initLogger();
         oApp.initFirebase();
         oApp.checkAuth();
 
@@ -38,11 +39,11 @@ var oApp = oApp || {};
 
     };
 
-    $('#signInWithGoogle').click(function() {
+    $('#signInWithGoogle').click(function () {
         console.log('signInWithGoogle');
         var provider = new firebase.auth.GoogleAuthProvider();
         //firebase.auth().signInWithRedirect(provider);
-        firebase.auth().signInWithPopup(provider).then(function(result) {
+        firebase.auth().signInWithPopup(provider).then(function (result) {
             console.log(result);
             if (result.credential) {
                 var token = result.credential.accessToken;
@@ -70,7 +71,7 @@ var oApp = oApp || {};
 
     oApp.checkAuth = function () {
         console.log('checkAuth');
-        firebase.auth().getRedirectResult().then(function(result) {
+        firebase.auth().getRedirectResult().then(function (result) {
             console.log(result);
             if (result.credential) {
                 var token = result.credential.accessToken;
@@ -78,7 +79,7 @@ var oApp = oApp || {};
                 $('body').append('<p>' + result.user.displayName + '</p>');
             }
             var user = result.user;
-        }).catch(function(error) {
+        }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -89,6 +90,25 @@ var oApp = oApp || {};
             // ...
         });
 
+    };
+
+    $('#log').click(function () {
+        $(this).toggleClass('open');
+    });
+
+
+    oApp.initLogger = function () {
+        console.log = function (item) {
+            switch (typeof item) {
+            case 'string':
+                $('#log').append(item);
+                break;
+            case 'object':
+                $('#log').append(JSON.stringify(item));
+                break;
+            }
+            $('#log').append('<br/>');
+        };
     };
 
 

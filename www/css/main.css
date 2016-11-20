@@ -1,0 +1,2 @@
+#log { position:absolute; background:#900;width: 96%; height: 6%; bottom: 2%; left: 2%; padding: 5px; font-size: 12px; overflow-y: auto; }
+#log.open { height: 96%; }
